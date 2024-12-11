@@ -34,7 +34,7 @@ public class TeleopDrive extends Command {
   public void execute() {
     double xSpeedVal = MathUtil.applyDeadband(xSpeedSup.getAsDouble(), 0.1);
     double rotationVal = MathUtil.applyDeadband(rotationSup.getAsDouble(), 0.1);
-    drive.arcadeDrive(xSpeedVal, rotationVal);
+    drive.DifferentialDrive(xSpeedVal, rotationVal);
   }
 
   // Called once the command ends or is interrupted.
