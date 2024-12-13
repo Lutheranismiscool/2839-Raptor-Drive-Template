@@ -41,12 +41,13 @@ public class RobotContainer {
   // A - Align
   private final JoystickButton alignButton = new JoystickButton(driver, XboxController.Button.kA.value);
 
+  private final double speed = 0.7;
   public RobotContainer() {
     configureBindings();
     drive.setDefaultCommand(
         new TeleopDrive(drive,
-        () -> driver.getRawAxis(leftTrigger) - driver.getRawAxis(rightTrigger),
-        () -> - driver.getRawAxis(forwardAxisY)));
+        () -> driver.getRawAxis(leftTrigger)*speed - driver.getRawAxis(rightTrigger)*speed,
+        () -> - driver.getRawAxis(forwardAxisY)*speed));
         // () -> driver.getRawAxis(strafeAxisX)));
   }
 
